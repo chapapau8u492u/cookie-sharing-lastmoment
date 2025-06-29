@@ -1,10 +1,9 @@
-
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Download, Trash2, ExternalLink } from 'lucide-react';
-import { SessionCookie, deleteCookie } from '@/lib/supabase';
-import { downloadJSONFile } from '@/lib/auth';
-import { useToast } from '@/hooks/use-toast';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Download, Trash2, ExternalLink } from "lucide-react";
+import { SessionCookie, deleteCookie } from "@/lib/supabase";
+import { downloadJSONFile } from "@/lib/auth";
+import { useToast } from "@/hooks/use-toast";
 
 interface SessionActionsProps {
   activeSession: SessionCookie;
@@ -12,28 +11,39 @@ interface SessionActionsProps {
   onSessionDeleted: () => void;
 }
 
-const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: SessionActionsProps) => {
+const SessionActions = ({
+  activeSession,
+  currentUser,
+  onSessionDeleted,
+}: SessionActionsProps) => {
   const { toast } = useToast();
   const isOwnSession = activeSession.uploaded_by === currentUser;
 
   const handleDownload = () => {
     try {
-      downloadJSONFile(activeSession.cookie_data, 'Lat Moement Tuitions_cookies.json');
+      downloadJSONFile(
+        activeSession.cookie_data,
+        "Last Moment Tuitions_cookies.json"
+      );
       toast({
         title: "Download started",
-        description: "Cookie file has been downloaded successfully."
+        description: "Cookie file has been downloaded successfully.",
       });
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Download failed",
-        description: "Failed to download cookie file."
+        description: "Failed to download cookie file.",
       });
     }
   };
 
   const handleDelete = async () => {
-    if (!confirm('Are you sure you want to end this session? This action cannot be undone.')) {
+    if (
+      !confirm(
+        "Are you sure you want to end this session? This action cannot be undone."
+      )
+    ) {
       return;
     }
 
@@ -42,27 +52,30 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
       if (success) {
         toast({
           title: "Session ended",
-          description: "The active session has been deleted."
+          description: "The active session has been deleted.",
         });
         onSessionDeleted();
       } else {
         toast({
           variant: "destructive",
           title: "Delete failed",
-          description: "Failed to delete session. Please try again."
+          description: "Failed to delete session. Please try again.",
         });
       }
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Something went wrong while deleting the session."
+        description: "Something went wrong while deleting the session.",
       });
     }
   };
 
   const openApnaCollege = () => {
-    window.open('https://lastmomenttuitions.com/course/tcs-nqt-complete-course-videos-notes-mock/', '_blank');
+    window.open(
+      "https://lastmomenttuitions.com/course/tcs-nqt-complete-course-videos-notes-mock/",
+      "_blank"
+    );
   };
 
   return (
@@ -77,7 +90,7 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
             <Download className="w-4 h-4 mr-2" />
             Download Cookie
           </Button>
-          
+
           <Button
             onClick={openApnaCollege}
             variant="outline"
@@ -87,7 +100,7 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
             <ExternalLink className="w-4 h-4 mr-2" />
             Open Last Moment Tuitions
           </Button>
-          
+
           {isOwnSession && (
             <Button
               onClick={handleDelete}
