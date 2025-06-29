@@ -18,7 +18,7 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
 
   const handleDownload = () => {
     try {
-      downloadJSONFile(activeSession.cookie_data, 'apna_college_cookies.json');
+      downloadJSONFile(activeSession.cookie_data, 'Lat Moement Tuitions_cookies.json');
       toast({
         title: "Download started",
         description: "Cookie file has been downloaded successfully."
