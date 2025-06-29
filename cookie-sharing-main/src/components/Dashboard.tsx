@@ -74,7 +74,7 @@ const Dashboard = ({ username, onLogout }: DashboardProps) => {
             <div className="flex justify-between items-center">
               <div>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  Apna College Session Manager
+                  Last Moment Tuitions 
                 </CardTitle>
                 <p className="text-gray-600 mt-1">Welcome back, {username}!</p>
               </div>
@@ -121,13 +121,13 @@ const Dashboard = ({ username, onLogout }: DashboardProps) => {
         <Card>
           <CardContent className="p-6">
             <Button
-              onClick={() => window.open('https://www.apnacollege.in', '_blank')}
+              onClick={() => window.open('https://lastmomenttuitions.com/course/tcs-nqt-complete-course-videos-notes-mock/', '_blank')}
               variant="outline"
               className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
               size="lg"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
-              Open Apna College
+              Open Last Moment Tuitions
             </Button>
           </CardContent>
         </Card>
