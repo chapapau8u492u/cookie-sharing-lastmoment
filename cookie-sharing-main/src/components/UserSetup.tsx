@@ -75,7 +75,7 @@ const UserSetup = ({ onSetupComplete }: UserSetupProps) => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold text-gray-900">
-            Welcome to Apna College Session Manager
+            Welcome to Last Moment Tuitions Session Manager
           </CardTitle>
           <CardDescription>
             Enter your username to get started with session sharing
