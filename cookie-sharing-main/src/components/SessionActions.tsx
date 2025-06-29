@@ -62,7 +62,7 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
   };
 
   const openApnaCollege = () => {
-    window.open('https://www.apnacollege.in', '_blank');
+    window.open('https://lastmomenttuitions.com/course/tcs-nqt-complete-course-videos-notes-mock/', '_blank');
   };
 
   return (
@@ -85,7 +85,7 @@ const SessionActions = ({ activeSession, currentUser, onSessionDeleted }: Sessio
             size="lg"
           >
             <ExternalLink className="w-4 h-4 mr-2" />
-            Open Apna College
+            Open Last Moment Tuitions
           </Button>
           
           {isOwnSession && (
